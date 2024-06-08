@@ -1,0 +1,419 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Documentation Api FabrITSoft",
+    "description": "Api FabrITSoft for dandoclick inc."
+  },
+  "host": "apifabritsoftschool.herokuapp.com",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "Users",
+      "description": "API for users in the system"
+    },
+    {
+      "name": "Instituciones",
+      "description": "API for Instituciones in the system"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {    
+    "/users": {
+        "get": {
+          "tags": [
+            "Users"
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Users"
+              }
+            }
+          }
+        }
+    },
+    "/users/create": {
+        "post": {
+          "tags": [
+            "Users"
+          ],
+          "description": "Create new user in system",
+          "parameters": [
+            {
+              "name": "user",
+              "in": "body",
+              "description": "User that we want to create",
+              "schema": {
+                  "$ref": "#/definitions/User"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "New user is created",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }      
+        }
+    },
+    "/users/login": {
+        "post": {
+          "tags": [
+            "Users"
+          ],
+          "description": "Login in system",
+          "parameters": [
+            {
+              "name": "login",
+              "in": "body",
+              "description": "Data for login",
+              "schema": {
+                  "$ref": "#/definitions/Login"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Data result login"              
+            }
+          }      
+        }
+    },
+    "/users/getbyid": {
+        "post": {
+          "tags": [
+            "Users"
+          ],
+          "description": "Get user by id",
+          "parameters": [
+            {
+              "name": "user",
+              "in": "body",
+              "description": "Id User looked",
+              "schema": {
+                  "$ref": "#/definitions/UserId"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "User found",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }      
+        }
+    },
+    "/users/getbyuser": {
+        "post": {
+          "tags": [
+            "Users"
+          ],
+          "description": "Get user by username",
+          "parameters": [
+            {
+              "name": "user",
+              "in": "body",
+              "description": "UserName User looked",
+              "schema": {
+                  "$ref": "#/definitions/UserNomUser"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "User found",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }      
+        }
+    },
+    "/users/getbyemail": {
+        "post": {
+          "tags": [
+            "Users"
+          ],
+          "description": "Get user by email",
+          "parameters": [
+            {
+              "name": "user",
+              "in": "body",
+              "description": "Email User looked",
+              "schema": {
+                  "$ref": "#/definitions/UserEmail"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "User found",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }      
+        }
+    },
+    "/users/enable": {
+        "post": {
+          "tags": [
+            "Users"
+          ],
+          "description": "Enable user by id",
+          "parameters": [
+            {
+              "name": "user",
+              "in": "body",
+              "description": "Id User for enable",
+              "schema": {
+                  "$ref": "#/definitions/UserId"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "User found",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }      
+        }
+    },
+    "/users/disable": {
+        "post": {
+          "tags": [
+            "Users"
+          ],
+          "description": "Disable user by id",
+          "parameters": [
+            {
+              "name": "user",
+              "in": "body",
+              "description": "Id User for disable",
+              "schema": {
+                  "$ref": "#/definitions/UserId"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "User found",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }      
+        }
+    },
+    "/users/delete": {
+        "post": {
+          "tags": [
+            "Users"
+          ],
+          "description": "Delete user by id",
+          "parameters": [
+            {
+              "name": "user",
+              "in": "body",
+              "description": "Id User for delete",
+              "schema": {
+                  "$ref": "#/definitions/UserId"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "User found",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }      
+        }
+    },
+    "/instituciones": {
+      "get": {
+        "tags": [
+          "Instituciones"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Instituciones"
+            }
+          }
+        }
+      }
+    }
+  },    
+  "definitions": {
+    "User": {
+      "required": [
+        "Identificacion",
+        "Nombre",
+        "Apellido", 
+        "Email", 
+        "Telefono", 
+        "Institucion", 
+        "Usuario", 
+        "Contrasena", 
+        "Activo"
+      ],
+      "properties": {
+        "Identificacion": {
+          "type": "number",
+          "uniqueItems": true
+        },
+        "Nombre": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "Apellido": {
+          "type": "string"
+        },
+        "Email": {
+          "type": "string"
+        },
+        "Telefono": {
+          "type": "string"
+        },
+        "Institucion": {
+          "type": "number"
+        },
+        "Usuario": {
+          "type": "string"
+        },
+        "Contrasena": {
+          "type": "string"
+        },
+        "Activo": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Users": {
+      "type": "array",
+      "$ref": "#/definitions/User"
+    },
+    "Login": {
+        "required": [
+          "Usuario", 
+          "Contrasena"
+        ],
+        "properties": {
+          "Usuario": {
+            "type": "string"
+          },
+          "Contrasena": {
+            "type": "string"
+          }
+        }
+    },
+    "UserId": {
+    "required": [
+        "Identificacion"
+    ],
+    "properties": {
+        "Identificacion": {
+        "type": "number"
+        }
+    }
+    },
+    "UserNomUser": {
+    "required": [
+        "Usuario"
+    ],
+    "properties": {
+        "Usuario": {
+        "type": "string"
+        }
+    }
+    },
+    "UserEmail": {
+    "required": [
+        "Email"
+    ],
+    "properties": {
+        "Email": {
+        "type": "string"
+        }
+    }
+    },
+    "Institucion": {
+    "required": [
+        "IdInstitucion",
+        "Nombre",
+        "NombreContacto",
+        "Direccion",
+        "Telefono",
+        "Email",
+        "Activo"
+    ],
+    "properties": {
+        "IdInstitucion": {
+        "type": "number"
+        },
+        "Nombre": {
+          "type": "string"
+        },
+        "NombreContacto": {
+          "type": "string"
+        },
+        "Direccion": {
+          "type": "string"
+        },
+        "Telefono": {
+          "type": "string"
+        },
+        "Email": {
+          "type": "string"
+        },
+        "Activo": {
+          "type": "boolean"
+        }
+    }
+    }
+
+  }
+}
